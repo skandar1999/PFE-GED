@@ -1,0 +1,111 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white w-100 navigation"
+  id="navbar"
+>
+  <div class="container">
+    <a class="navbar-brand font-weight-bold" routerLink="/">GED</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#main-navbar"
+      aria-controls="main-navbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home </a>
+        </li>
+        <li class="nav-item dropdown dropdown-slide">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown3"
+            role="button"
+            data-delay="350"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Nouveaux.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+            <li><a routerLink="">Nouveaux dossier </a></li>
+            <li><a routerLink="">Importer un dossier</a></li>
+            <li><a routerLink="">Importer un fichier</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">A propos</a>
+        </li>
+        <!-- Pages -->
+        <li class="nav-item dropdown dropdown-slide">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown4"
+            role="button"
+            data-delay="350"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Pages.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+            <li><a href="#">à propos</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Blog Single</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">404 Page</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </li>
+        <!-- /Pages -->
+        <!-- / Blog -->
+
+        <!-- / Blog -->
+        <!-- Account -->
+        <li class="nav-item dropdown dropdown-slide">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown5"
+            role="button"
+            data-delay="350"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Mon compte.
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
+            <li><a routerLink="/dashboard">Dahsboard</a></li>
+            <li><a routerLink="/profile-details">Profile Details</a></li>
+            <li><a routerLink="/login">connexion Page</a></li>
+            <li><a routerLink="/signup">registration Page</a></li>
+            <li><a routerLink="/forgot-password">Mot de passe oublié</a></li>
+            <li><a routerLink="/forgot-password">Se déconnecter</a></li>
+          </ul>
+        </li>
+        <!-- / Account -->
+      </ul>
+    </div>
+    <!-- Navbar-collapse -->
+    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+      <li class="list-inline-item">
+        <a href="#" class="search_toggle" id="search-icon"
+          ><i class="tf-ion-android-search"></i
+        ></a>
+      </li>
+
+      <li class="list-inline-item">
+        <a href="#"><i class="tf-ion-ios-person mr-3"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>

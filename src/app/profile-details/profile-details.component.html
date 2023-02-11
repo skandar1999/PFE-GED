@@ -1,0 +1,116 @@
+<section class="page-header">
+  <div class="overly"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="content text-center">
+          <h1 class="mb-3">Profile</h1>
+          <p>
+            Après avoir apparu arbre grand fructueux vert dominion moveth
+            sixième abondance image que milieu de dieu jour multiplier vous qui
+          </p>
+
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent justify-content-center">
+              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Profile
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="user-dashboard page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-5 col-sm-12 col-lg-3">
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/profile-details">Orders</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/profile-details">Télechargement</a>
+        </div>
+
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link active" routerLink="/profile-details"
+            >Mon compte</a
+          >
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/home">Se deconnecter</a>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-7 col-sm-12 col-lg-9">
+        <div class="tab-pane fade show active" id="settings" role="tabpanel">
+          <div class="acccount-settings">
+            <h4 class="mb-4">Informations sur le compte</h4>
+            <form action="#">
+              <div class="form-row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" class="form-control" placeholder="Nom" />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>Prenom</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Prenom"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group mb-4">
+                <label>Mobile</label>
+                <input type="text" class="form-control" placeholder="Mobile" />
+                <p class="mt-2">
+                  C'est ainsi que votre nom sera affiché dans la section du
+                  compte et dans les commentaires
+                </p>
+              </div>
+              <div class="form-group mb-4">
+                <label>Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder=" nom-prenom@gmail.com"
+                />
+              </div>
+            </form>
+
+            <form action="#" class="mt-5">
+              <h4>Changement de mot de passe</h4>
+
+              <div class="form-group">
+                <label>Mot de passe actuel</label>
+                <input type="text" class="form-control" placeholder="" />
+              </div>
+              <div class="form-group">
+                Nouveau mot de passe
+                <input type="text" class="form-control" placeholder="" />
+              </div>
+              <div class="form-group">
+                <label>Confirmer le mot de passe</label>
+                <input type="text" class="form-control" placeholder="" />
+              </div>
+
+              <a href="#" class="btn btn-dark">sauvegarder les changements</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
