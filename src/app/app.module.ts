@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { OrdersComponent } from './orders/orders.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +19,6 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CheckoutComponent,
     DashboardComponent,
     OrdersComponent,
     LoginComponent,

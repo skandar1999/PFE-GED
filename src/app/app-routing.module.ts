@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'profile-details', component: ProfileDetailsComponent },
+
   { path: '', component: HomeComponent },
 ];
 
