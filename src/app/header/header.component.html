@@ -20,6 +20,9 @@
         <li class="nav-item active">
           <a class="nav-link" routerLink="/">Home </a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/dashboard">Mes documents </a>
+        </li>
         <li class="nav-item dropdown dropdown-slide">
           <a
             class="nav-link dropdown-toggle"
@@ -31,7 +34,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Nouveaux.
+            Nouveaux
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
             <li><a routerLink="">Nouveaux dossier </a></li>
@@ -39,9 +42,7 @@
             <li><a routerLink="">Importer un fichier</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">A propos</a>
-        </li>
+
         <!-- Pages -->
         <li class="nav-item dropdown dropdown-slide">
           <a
@@ -54,15 +55,11 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Pages.
+            Pages
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
             <li><a href="#">à propos</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Blog Single</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">404 Page</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
           </ul>
         </li>
         <!-- /Pages -->
@@ -84,12 +81,10 @@
             Mon compte.
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
-            <li><a routerLink="/dashboard">Dahsboard</a></li>
-            <li><a routerLink="/profile-details">Profile Details</a></li>
-            <li><a routerLink="/login">connexion Page</a></li>
-            <li><a routerLink="/signup">registration Page</a></li>
-            <li><a routerLink="/forgot-password">Mot de passe oublié</a></li>
-            <li><a routerLink="/forgot-password">Se déconnecter</a></li>
+            <li><a routerLink="/profile-details">mon profile </a></li>
+            <li><a routerLink="/login">Se connecter </a></li>
+            <li><a routerLink="/signup">registration </a></li>
+            <li><a href="#">Se déconnecter</a></li>
           </ul>
         </li>
         <!-- / Account -->
@@ -98,13 +93,18 @@
     <!-- Navbar-collapse -->
     <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
       <li class="list-inline-item">
-        <a href="#" class="search_toggle" id="search-icon"
-          ><i class="tf-ion-android-search"></i
-        ></a>
-      </li>
-
-      <li class="list-inline-item">
-        <a href="#"><i class="tf-ion-ios-person mr-3"></i></a>
+        <div class="input-group rounded">
+          <input
+            type="search"
+            class="form-control rounded"
+            placeholder="Rechercher dans GED"
+            aria-label="Search"
+            aria-describedby="search-addon"
+          />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+        </div>
       </li>
     </ul>
   </div>

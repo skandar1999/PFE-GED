@@ -2,16 +2,16 @@
   <div class="overly"></div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <div class="content text-center">
-          <h1 class="mb-3">Documents récents</h1>
+          <h1 class="mb-2">Bienvenue à la page de contact</h1>
           <h3></h3>
 
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent justify-content-center">
               <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">
-                mes documents
+                Contact
               </li>
             </ol>
           </nav>
@@ -26,10 +26,10 @@
     <div class="row">
       <div class="col-12 col-md-5 col-sm-12 col-lg-3">
         <div class="nav flex-column nav-pills">
-          <a class="nav-link" routerLink="/contact">contact</a>
+          <a class="nav-link active" routerLink="/dashboard">contact</a>
         </div>
         <div class="nav flex-column nav-pills">
-          <a class="nav-link active" routerLink="/dashboard">Télechargement</a>
+          <a class="nav-link" routerLink="/dashboard">Télechargement</a>
         </div>
 
         <div class="nav flex-column nav-pills">
@@ -41,11 +41,13 @@
       </div>
 
       <div class="col-12 col-md-7 col-sm-12 col-lg-9">
-        vous pouvez consulter
-        <a href="#">Vos documents, </a> et
-        <a href="#"
-          >Modifier votre mot de passe et les détails de votre compte.
-        </a>
+        <p class="mb-3">demandez comment nous pouvons vous aider :</p>
+        <textarea
+          name="commentaire"
+          id="commentaire"
+          rows="5"
+          cols="97"
+        ></textarea>
       </div>
     </div>
   </div>
