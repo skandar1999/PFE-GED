@@ -1,3 +1,10 @@
+.alert {
+  border-radius: 0px;
+  background-color: #fcf6f6;
+  color: #fc6d57;
+  border-color: #ff0707;
+}
+
 .field {
   width: 100%;
   margin-bottom: 10px;
@@ -92,9 +99,9 @@ input:active input:hover {
 }
 
 strong {
-  margin-left: 91px;
+  margin-left: 88px;
 }
 
 .container {
-  margin-top: -40px;
+  margin-bottom: -60px;
 }

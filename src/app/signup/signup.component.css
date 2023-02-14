@@ -82,3 +82,7 @@ input:active input:hover {
 .field input:hover {
   border-color: #fb5c42;
 }
+
+.container {
+  margin-top: -40px;
+}

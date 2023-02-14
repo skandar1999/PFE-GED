@@ -36,6 +36,7 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item dropdown dropdown-slide">
           <a
+            *ngIf="authService.isloggedIn"
             class="nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown3"
@@ -82,6 +83,7 @@
       <ul class="navbar-nav m-auto">
         <li class="nav-item dropdown dropdown-slide">
           <a
+            routerLink="/login"
             class="nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown3"
@@ -91,21 +93,37 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Mon compte.
+            {{ authService.loggedUser }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
-            <li><a routerLink="/profile-details">mon profile </a></li>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown5"
+            *ngIf="authService.isloggedIn"
+          >
             <li>
-              <a routerLink="/login">Se connecter </a>
+              <a routerLink="/profile-details">mon profile </a>
+            </li>
+            <li>
+              <a routerLink="/login" *ngIf="!authService.isloggedIn"
+                >Se connecter
+              </a>
             </li>
             <li>
               <a routerLink="/signup">Ajouter un compte </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="/dashboard">Mes documents </a>
+              <a class="nav-link" routerLink="/docs">Mes documents </a>
             </li>
             <li>
-              <a>Se déconnecter</a>
+              <a
+                *ngIf="authService.isloggedIn"
+                class="nav-link"
+                href="/login"
+                (click)="onLogout()"
+                type="submit"
+              >
+                Se déconnecter
+              </a>
             </li>
           </ul>
         </li>
