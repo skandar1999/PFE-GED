@@ -3,7 +3,7 @@
   id="navbar"
 >
   <div class="container">
-    <a class="navbar-brand font-weight-bold" routerLink="/">GED</a>
+    <a class="navbar-brand font-weight-bold" href="#">GED</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -15,14 +15,25 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+        <li class="list-inline-item">
+          <div class="input-group rounded">
+            <input
+              type="search"
+              class="form-control rounded"
+              placeholder="Rechercher dans GED"
+              aria-label="Search"
+              aria-describedby="search-addon"
+            />
+            <span class="input-group-text border-0" id="search-addon">
+              <a routerLink="#" class="fa fa-search" aria-hidden="true"></a>
+            </span>
+          </div>
+        </li>
+      </ul>
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="/dashboard">Mes documents </a>
-        </li>
         <li class="nav-item dropdown dropdown-slide">
           <a
             class="nav-link dropdown-toggle"
@@ -37,8 +48,12 @@
             Nouveaux
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-            <li><a routerLink="">Nouveaux dossier </a></li>
-            <li><a routerLink="">Importer un dossier</a></li>
+            <li>
+              <a routerLink=""> Nouveaux dossier </a>
+            </li>
+            <li>
+              <a routerLink=""> Importer un dossier</a>
+            </li>
             <li><a routerLink="">Importer un fichier</a></li>
           </ul>
         </li>
@@ -62,16 +77,14 @@
             <li><a routerLink="/contact">Contact</a></li>
           </ul>
         </li>
-        <!-- /Pages -->
-        <!-- / Blog -->
+      </ul>
 
-        <!-- / Blog -->
-        <!-- Account -->
+      <ul class="navbar-nav m-auto">
         <li class="nav-item dropdown dropdown-slide">
           <a
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbarDropdown5"
+            id="navbarDropdown3"
             role="button"
             data-delay="350"
             data-toggle="dropdown"
@@ -82,30 +95,21 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown5">
             <li><a routerLink="/profile-details">mon profile </a></li>
-            <li><a routerLink="/login">Se connecter </a></li>
-            <li><a routerLink="/signup">registration </a></li>
-            <li><a href="#">Se déconnecter</a></li>
+            <li>
+              <a routerLink="/login">Se connecter </a>
+            </li>
+            <li>
+              <a routerLink="/signup">Ajouter un compte </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">Mes documents </a>
+            </li>
+            <li>
+              <a>Se déconnecter</a>
+            </li>
           </ul>
         </li>
-        <!-- / Account -->
       </ul>
     </div>
-    <!-- Navbar-collapse -->
-    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
-      <li class="list-inline-item">
-        <div class="input-group rounded">
-          <input
-            type="search"
-            class="form-control rounded"
-            placeholder="Rechercher dans GED"
-            aria-label="Search"
-            aria-describedby="search-addon"
-          />
-          <span class="input-group-text border-0" id="search-addon">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </span>
-        </div>
-      </li>
-    </ul>
   </div>
 </nav>

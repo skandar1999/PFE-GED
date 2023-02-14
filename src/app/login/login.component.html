@@ -3,6 +3,13 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="login-form border p-5">
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            *ngIf="erreur == 1"
+          >
+            <strong>Email ou mot de passe erronés!</strong>
+          </div>
+
           <div class="text-center heading">
             <h3 class="mb-2">Connectez-vous à votre compte</h3>
             <p class="lead">
@@ -13,7 +20,12 @@
 
           <div class="field">
             <span class="fa fa-envelope"> </span>
-            <input type="text" placeholder="Email" name="email" id="email" />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              [(ngModel)]="user.email"
+            />
           </div>
 
           <div class="field">
@@ -22,9 +34,10 @@
               type="text"
               placeholder="Password"
               name="password"
-              id="password"
+              [(ngModel)]="user.password"
             />
           </div>
+
           <p class="lead">
             <a routerLink="/forgot-password">Mot de passe oublié ?</a>
           </p>

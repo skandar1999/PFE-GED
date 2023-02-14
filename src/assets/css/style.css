@@ -385,14 +385,14 @@ a.text-primary:hover {
 }
 
 .page-header {
-  background: #f5f5f5;
-  background-size: cover;
-  padding: 60px 0px;
+  background: #f9f9f9;
+  padding: 40px 10px 10px 10px;
   position: relative;
 }
 
 .page-header h1 {
   margin-bottom: 0px;
+  color: #504e4e;
 }
 
 .page-header p {
