@@ -1,23 +1,55 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const httpOptions = {
+  headers: new HttpHeaders( {'Content-Type': 'application/json'} )
+};
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  users: User[] = [
-    { email: 'sabriskandar3@gmail.com', password: '123', roles: ['ADMIN'] },
-    { email: 'sabriskandar4@gmail.com', password: '1230', roles: ['USER'] },
-  ];
+  users!: User[];
 
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
   public roles!: string[];
 
-  constructor(private router: Router) {}
+  GetApi: string='https://127.0.0.1:8000/getAllUsers';
+  apiURL: string='https://127.0.0.1:8000/userCreate';
+  apilogin: string='https://127.0.0.1:8000/api/login_check';
+  loginApi: string='https://127.0.0.1:8000/api/login_check';
+  ResetPw: string='https://127.0.0.1:8000/reset-password';
 
-  SignIn(user: User): Boolean {
+  token! : string;
+  constructor(private router: Router, private http : HttpClient) {}
+  
+  login(user : User)
+{
+return this.http.post<User>(this.loginApi, user , {observe:'response'});
+}
+saveToken(jwt:string){
+  localStorage.setItem('jwt',jwt);
+  this.token = jwt;
+  this.isloggedIn = true; 
+  }
+ 
+
+
+  listeUsers(): Observable<User[]>{
+    return this.http.get<User[]>(this.GetApi);
+    }
+    
+    ajouterUser( user: User):Observable<User>{
+      return this.http.post<User>(this.apiURL, user, httpOptions);
+      }
+
+
+     
+ SignIn(user: User): Boolean {
     let validUser: Boolean = false;
     this.users.forEach((curUser) => {
       if (user.email == curUser.email && user.password == curUser.password) {
@@ -32,19 +64,14 @@ export class AuthService {
     return validUser;
   }
 
-  isAdmin(): Boolean {
-    if (!this.roles)
+  isUser(): Boolean {
+    if (!this.isloggedIn)
       //this.roles== undefiened
       return false;
-    return this.roles.indexOf('ADMIN') > -1;
+    return this.isloggedIn;
   }
 
-  isUser(): Boolean {
-    if (!this.roles)
-      //this.roles== undefiened
-      return false;
-    return this.roles.indexOf('USER') > -1;
-  }
+  
 
   logout() {
     this.isloggedIn = false;

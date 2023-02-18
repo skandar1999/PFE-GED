@@ -18,7 +18,7 @@ export class UserGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authService.isAdmin() || this.authService.isUser()) return true;
+    if (this.authService.isUser()) return true;
     else {
       this.router.navigate(['app-forbidden']);
       return false;

@@ -12,58 +12,27 @@
 
           <div class="tab-pane fade show active" id="settings" role="tabpanel">
             <div class="acccount-settings">
-              <div class="field">
-                <span class="fa fa-user"> </span>
-                <input type="text" placeholder="Nom" name="nom" id="nom" />
-              </div>
-
-              <div class="field">
-                <span class="fa fa-user"> </span>
-                <input
-                  type="text"
-                  placeholder="Prenom"
-                  name="prenom"
-                  id="prenom"
-                />
-              </div>
+              
 
               <div class="field">
                 <span class="fa fa-envelope"> </span>
                 <input
                   type="text"
                   placeholder="Email"
-                  name="email"
-                  id="email"
+                  name="email" 
+                  [(ngModel)]="newUser.email"
+
                 />
               </div>
 
               <div class="field">
                 <span class="fa fa-lock"> </span>
                 <input
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   name="password"
-                  id="password"
-                />
-              </div>
-              <div class="field">
-                <span class="fa fa-lock"> </span>
-                <input
-                  type="text"
-                  placeholder="Confirmation du mot de passe"
-                  name="password"
-                  id="password"
-                />
-              </div>
+                  [(ngModel)]="newUser.password"
 
-              <div class="field">
-                <span class="fa fa-phone"> </span>
-                <input
-                  type="text"
-                  formControlName="mobile"
-                  placeholder="Mobile"
-                  name="mobile"
-                  id="mobile"
                 />
               </div>
 
@@ -80,7 +49,7 @@
               </div>
 
               <div class="action">
-                <button type="submit" class="btn btn-submit">Confirmer</button>
+                <button type="submit" class="btn btn-submit"  (click)="userCreate()" >Confirmer</button>
                 <button class="btn btn-google">
                   <span class="icon">
                     <img src="../../../assets/images/google.jpg" /> Continuer

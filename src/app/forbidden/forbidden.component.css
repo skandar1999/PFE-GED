@@ -1,50 +1,14 @@
+.container {
+  margin-top: -50px;
+}
 .alert {
   border-radius: 0px;
-  background-color: #fcf6f6;
-  color: #fc6d57;
-  border-color: #ff0707;
+  background-color: #f7eeee;
+  color: #f54429;
+  border-color: #fcaeae;
+  font-size: 18px;
+ 
 }
-
-.field {
-  width: 100%;
-  margin-bottom: 10px;
-  display: flex;
-}
-
-.field input {
-  width: 100%;
-  height: 50px;
-  font-size: 1.1rem;
-  padding: 10px;
-  background-color: white;
-  border: none;
-  border: solid 0.5px;
-  border-color: #e6e2e2;
-}
-
-.field input:active {
-  border-color: #fb5c42;
-}
-
-.field input:hover {
-  border-color: #fb5c42;
-}
-
-.field span {
-  color: gray;
-  width: 50px;
-  line-height: 45px;
-  text-align: center;
-}
-.field input::placeholder {
-  color: gray;
-}
-
-input:focus,
-input:active input:hover {
-  outline: none;
-}
-
 .action .btn {
   width: 100%;
   padding: 11px;
@@ -67,41 +31,6 @@ input:active input:hover {
   transition: 0.5s all ease;
 }
 
-.action .btn-google {
-  background-color: #f8eaea;
 
-  color: #fb5c42;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-.action .btn-google:hover {
-  background-color: #e6e2e2;
-  color: black;
-  transition: 0.5s all ease;
-}
 
-.action .btn-google .icon {
-  display: inline-block;
-  vertical-align: middle;
-}
 
-.action .btn-google .icon img {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-}
-
-.alert {
-  border-radius: 0px;
-  background-color: #fcf6f6;
-  color: #fc6d57;
-  border-color: #ff0707;
-}
-
-strong {
-  margin-left: 88px;
-}
-
-.container {
-  margin-bottom: -60px;
-}

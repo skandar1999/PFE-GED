@@ -13,18 +13,16 @@ import { UserGuard } from './user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'docs', component: DocsComponent, canActivate: [UserGuard] },
+  { path: 'docs', component: DocsComponent , canActivate: [UserGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {
-    path: 'profile-details',
-    component: ProfileDetailsComponent,
-    canActivate: [UserGuard],
-  },
+  {path: 'profile-details', component: ProfileDetailsComponent, canActivate: [UserGuard] },
   { path: 'contact', component: ContactComponent },
-  { path: 'admin', component: OnlyadminComponent, canActivate: [UserGuard] },
+  { path: 'admin', component: OnlyadminComponent, },
   { path: 'app-forbidden', component: ForbiddenComponent },
+  { path: 'home', component: HomeComponent, },
+
 ];
 
 @NgModule({

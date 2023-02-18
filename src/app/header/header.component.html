@@ -3,7 +3,7 @@
   id="navbar"
 >
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href="#">GED</a>
+    <a class="navbar-brand font-weight-bold"  routerLink="">GED</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -74,15 +74,15 @@
             Pages
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-            <li><a href="#">à propos</a></li>
-            <li><a routerLink="/contact">Contact</a></li>
+            <li><a routerLink="">à propos</a></li>
+            <li><a routerLink="/contact" >Contact</a></li>
           </ul>
         </li>
       </ul>
 
       <ul class="navbar-nav m-auto">
         <li class="nav-item dropdown dropdown-slide">
-          <a
+          <a *ngIf="authService.isloggedIn"
             routerLink="/login"
             class="nav-link dropdown-toggle"
             href="#"
@@ -92,35 +92,30 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
-            {{ authService.loggedUser }}
+            class="fa fa-user"
+          > Connecté
+          
           </a>
           <ul
             class="dropdown-menu"
-            aria-labelledby="navbarDropdown5"
-            *ngIf="authService.isloggedIn"
-          >
+            aria-labelledby="navbarDropdown5">
+            
             <li>
               <a routerLink="/profile-details">mon profile </a>
-            </li>
-            <li>
-              <a routerLink="/login" *ngIf="!authService.isloggedIn"
-                >Se connecter
-              </a>
-            </li>
-            <li>
-              <a routerLink="/signup">Ajouter un compte </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" routerLink="/docs">Mes documents </a>
             </li>
+            
+            
             <li>
               <a
-                *ngIf="authService.isloggedIn"
+                
                 class="nav-link"
                 href="/login"
                 (click)="onLogout()"
                 type="submit"
+                
               >
                 Se déconnecter
               </a>
