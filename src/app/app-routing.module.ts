@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {path: 'profile-details', component: ProfileDetailsComponent, canActivate: [UserGuard] },
+  {path: 'profile-details', component: ProfileDetailsComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'admin', component: OnlyadminComponent, },
   { path: 'app-forbidden', component: ForbiddenComponent },

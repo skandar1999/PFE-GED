@@ -60,7 +60,7 @@
         </li>
 
         <!-- Pages -->
-        <li class="nav-item dropdown dropdown-slide">
+        <li class="nav-item dropdown dropdown-slide ">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -96,6 +96,7 @@
           > Connecté
           
           </a>
+      
           <ul
             class="dropdown-menu"
             aria-labelledby="navbarDropdown5">
@@ -122,6 +123,7 @@
             </li>
           </ul>
         </li>
+        <a class='connect' *ngIf="!authService.isloggedIn" routerLink="/login"> Connexion </a>
       </ul>
     </div>
   </div>

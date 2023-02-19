@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './../forgot-password/forgot-password.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
@@ -28,6 +29,8 @@ export class LoginComponent implements OnInit {
       this.err = 1; 
       }
       });
-      
   }
+
+
+  
 }

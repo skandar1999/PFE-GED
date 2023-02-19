@@ -21,16 +21,15 @@ export class AuthService {
   GetApi: string='https://127.0.0.1:8000/getAllUsers';
   apiURL: string='https://127.0.0.1:8000/userCreate';
   apilogin: string='https://127.0.0.1:8000/api/login_check';
-  loginApi: string='https://127.0.0.1:8000/api/login_check';
-  ResetPw: string='https://127.0.0.1:8000/reset-password';
 
   token! : string;
   constructor(private router: Router, private http : HttpClient) {}
   
   login(user : User)
 {
-return this.http.post<User>(this.loginApi, user , {observe:'response'});
+return this.http.post<User>(this.apilogin, user , {observe:'response'});
 }
+
 saveToken(jwt:string){
   localStorage.setItem('jwt',jwt);
   this.token = jwt;

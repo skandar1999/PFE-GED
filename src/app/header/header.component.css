@@ -6,3 +6,14 @@
 .fa-search {
   border: none;
 }
+
+
+
+
+.connect
+{ font-weight: bold;
+color: black;}
+
+.connect:hover
+{ font-weight: bold;
+color: #fb5c42;}
