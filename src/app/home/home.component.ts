@@ -8,14 +8,21 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  users?: User[];
+  status = false;
+addToggle()
+{
+  this.status = !this.status;       
+}
+ 
   constructor(private authService: AuthService) {}
 
 
-  ngOnInit(): void {
-    this.authService.listeUsers().subscribe(us => {
-    console.log(us);
-    this.users = us;
-    });
-    }
+  ngOnInit(): void {}
+
+
+
+  
+
+
+
 }

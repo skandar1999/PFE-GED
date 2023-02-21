@@ -21,6 +21,8 @@ export class AuthService {
   GetApi: string='https://127.0.0.1:8000/getAllUsers';
   apiURL: string='https://127.0.0.1:8000/userCreate';
   apilogin: string='https://127.0.0.1:8000/api/login_check';
+  deleteapi: string='https://127.0.0.1:8000/delete';
+
 
   token! : string;
   constructor(private router: Router, private http : HttpClient) {}
@@ -46,6 +48,10 @@ saveToken(jwt:string){
       return this.http.post<User>(this.apiURL, user, httpOptions);
       }
 
+      supprimerUser(id : number) {
+        const url = `${this.deleteapi}/${id}`;
+        return this.http.delete(url, httpOptions);
+        }
 
      
  SignIn(user: User): Boolean {

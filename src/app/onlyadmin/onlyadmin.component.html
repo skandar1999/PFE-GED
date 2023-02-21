@@ -1,1 +1,62 @@
-<p>onlyadmin works!</p>
+
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>Commandes récentes</h2>
+                    
+                </div>
+  
+                <table>
+                    <thead class="thead-dark">
+
+                        <tr>
+                            
+                            <td>Email</td>
+                            <td>password</td>
+                            <td>Roles</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+  
+                    <tbody *ngFor="let user of users">
+                        <tr >
+                           
+                        <td>{{user.email}}</td>
+                        <td>{{user.password}}</td>
+                        <td>{{user.roles}}</td>
+                        <td>
+                            <div class="action">
+                                <a type="submit" class="btn btn-danger" (click)="supprimerUser(user)">
+                                  Supprimer
+                                </a>
+                                
+                              </div>
+          
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+  
+            <!-- ================= New Customers ================ -->
+            <div class="recentCustomers">
+                <div class="cardHeader">
+                    <h2>Utilisateur récents</h2>
+                </div>
+  
+                <table>
+                    <tbody *ngFor="let user of users">
+                        <tr>
+                        <td width="60px">
+                            <div class="imgBx"><img src="assets/images/customer01.jpg" alt=""></div>
+                        </td>
+                        <td>
+                            <h4> {{user.id}}: {{user.email}}<br> </h4>
+                        </td>
+                    </tr>
+  
+                    
+                    
+                </table>
+            </div>
+        </div>
+  
