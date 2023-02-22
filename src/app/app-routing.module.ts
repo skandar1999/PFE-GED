@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -13,16 +14,17 @@ import { UserGuard } from './user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'docs', component: DocsComponent , canActivate: [UserGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  {path: 'profile-details', component: ProfileDetailsComponent,canActivate: [UserGuard]},
+  { path: 'profile-details', component: ProfileDetailsComponent,canActivate: [UserGuard]},
+  { path: 'docs', component: DocsComponent , canActivate: [UserGuard] },
+  { path: 'profile', component: ProfileComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admin', component: OnlyadminComponent, },
   { path: 'app-forbidden', component: ForbiddenComponent },
   { path: 'home', component: HomeComponent },
-
+  
 ];
 
 @NgModule({

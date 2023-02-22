@@ -6,7 +6,7 @@
         <div class="content text-center">
           <span class="icon">
             <i class='fas fa-user-circle' style='font-size:90px'></i>
-            <h1 class="mb-3">Profile</h1><br>
+            <h1 class="mb-3"> Modifier votre Profile</h1><br>
           </span>
 
           <nav aria-label="breadcrumb">
@@ -47,7 +47,7 @@
 
       <div class="col-12 col-md-7 col-sm-12 col-lg-9">
         <div class="tab-pane fade show active" id="settings" role="tabpanel">
-          <div class="acccount-settings" *ngFor="let user of users" >
+          <div class="acccount-settings"  >
             <h4 class="mb-4">Informations sur le compte</h4>
 
             
@@ -84,7 +84,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  placeholder=" {{user.email}} "
+                  placeholder=" Email "
                 />
               </div>
             </form>
@@ -107,8 +107,8 @@
 
               <a href="#" class="btn btn-dark">Sauvegarder les changements</a
               ><br />
-              <button type="submit" class="btn btn-danger" (click)="supprimerUser(user)" (click)="onLogout()" >Supprimer mon compte</button>
-            </form>
+              <button type="submit" class="btn btn-danger" (click)="supprimerUser(user)">Supprimer mon compte</button>
+             </form>
           </div>
         </div>
       </div>

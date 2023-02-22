@@ -34,7 +34,7 @@ export class ProfileDetailsComponent implements OnInit {
 
 
 
-    supprimerUser(user: User)
+  supprimerUser(user: User)
   {
   let conf = confirm("Etes-vous sûr supprimer Votre compte ?");
   if (conf)
