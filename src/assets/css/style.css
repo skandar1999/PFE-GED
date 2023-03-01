@@ -9,6 +9,8 @@ body {
   font-family: "Catamaran", sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  margin-block-start: -10px;  
+
 }
 
 p {
@@ -401,7 +403,7 @@ a.text-primary:hover {
 }
 
 .page-wrapper {
-  padding: 70px 0;
+  padding: 60px 0;
 }
 
 .search-wrap {
@@ -467,11 +469,11 @@ a.text-primary:hover {
 
 .navigation {
   margin-bottom: 0;
-  padding: 15px 0px;
+  padding: 0px 0px;
 }
 
 .navigation .navbar-nav > li {
-  padding: 0px 10px;
+  padding: 0px 0px;
 }
 
 .navigation .navbar-nav > li.active a {
@@ -481,12 +483,13 @@ a.text-primary:hover {
 .navigation .navbar-nav > li > a {
   color: #000;
   font-size: 17px;
-  padding: 20px 15px;
+  padding: 15px 17px;
   text-transform: capitalize;
   -webkit-transition: 0.2s ease-in-out 0s;
   transition: 0.2s ease-in-out 0s;
   letter-spacing: 0.5px;
   font-weight: 600;
+ 
 }
 
 .navigation .navbar-nav > li > a:hover,

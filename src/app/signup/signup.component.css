@@ -35,7 +35,6 @@ input:active input:hover {
   font-size: 20px;
   border: 0px;
   background-color: #fb5c42;
-  font-weight: bold;
   margin-top: 10px;
 }
 
@@ -52,14 +51,15 @@ input:active input:hover {
 }
 
 .action .btn-google {
-  background-color: #faf1f1;
-  color: #fb5c42;
+  background-color: #f8eaea;
+  color: #333232;
   cursor: pointer;
   margin-bottom: 15px;
 }
 .action .btn-google:hover {
-  color: #000000;
   background-color: #e6e2e2;
+  color: black;
+
   transition: 0.5s all ease;
 }
 

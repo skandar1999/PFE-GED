@@ -44,7 +44,7 @@ input:active input:hover {
   font-size: 20px;
   border: 0px;
   background-color: #fb5c42;
-  font-weight: bold;
+
   margin-top: 10px;
 }
 
@@ -62,8 +62,7 @@ input:active input:hover {
 
 .action .btn-google {
   background-color: #f8eaea;
-
-  color: #fb5c42;
+  color: #333232;
   cursor: pointer;
   margin-bottom: 15px;
 }
@@ -103,6 +102,7 @@ strong {
 .toggle-password {
   cursor: pointer;
   display: inline-block;
-  
+  border: none;
+  font-weight: 20px;
 }
 

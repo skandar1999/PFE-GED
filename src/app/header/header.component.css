@@ -46,7 +46,6 @@ color: #fb5c42;}
   padding: 0 20px;
   cursor: pointer;
   border: 1px;
-  font-weight: bold;
 
 }
 
@@ -73,4 +72,15 @@ color: #fb5c42;}
     width: 100%;
     max-width: none;
   }
+}
+
+
+.mytitle{
+  font-size: 25px;
+  font-family: "Bahnschrift SemiBold" , "Brush Script MT" ;
+  color: black;
+}
+
+.mytitle:hover{
+  text-decoration: underline;
 }
