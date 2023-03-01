@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';  
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
     OnlyadminComponent,
     ForbiddenComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

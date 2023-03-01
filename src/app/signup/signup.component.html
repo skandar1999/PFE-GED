@@ -3,6 +3,13 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="login-form border p-5">
+
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            *ngIf="err==1"
+          >
+            <strong>Désolé, cette adresse e-mail est déjà utilisée.</strong>
+          </div>
           
           <div class="text-center heading">
             <h1 class="mb-2">Inscription</h1>
@@ -27,26 +34,31 @@
               </div>
 
               <div class="field">
-                <span class="fa fa-lock"> </span>
+                <span class="fa fa-user"> </span>
                 <input
-                  type="password"
-                  placeholder="Mot de passe"
-                  name="password"
-                  [(ngModel)]="newUser.password"
+                  type="text"
+                  placeholder="Username"
+                  name="username" 
+                  [(ngModel)]="newUser.username"
 
                 />
               </div>
 
               <div class="field">
                 <span class="fa fa-lock"> </span>
-                <input 
-                  type="password"
-                  placeholder=" comfirmation Mot de passe"
-                  name="password"
-                  [(ngModel)]="newUser.password"
-
-                />
+                
+              <input type="{{ hidePassword ? 'password' : 'text' }}" 
+              class="form-control" id="password"
+               placeholder="Mot de passe" 
+               [(ngModel)]="newUser.password">
+               <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()"></i>
+                </span>
               </div>
+              </div>
+
+             
 
               <div class="form-check">
                 <input

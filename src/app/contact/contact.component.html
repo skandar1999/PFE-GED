@@ -38,8 +38,9 @@
           <a class="nav-link" routerLink="/profile-details">Mon compte</a>
         </div>
         <div class="nav flex-column nav-pills">
-          <a class="nav-link" routerLink="/signup">Se déconnecter</a>
+          <a href="/login" class="nav-link"(click)="onLogout()" class="nav-link" routerLink="/signup" *ngIf="authService.isloggedIn" >Se déconnecter</a>
         </div>
+      
       </div>
 
       <div class="col-12 col-md-7 col-sm-12 col-lg-9">

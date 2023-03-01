@@ -1,3 +1,5 @@
+import { UserService } from './../services/user.service';
+import { UserGuard } from './../guard/user.guard';
 import { ForgotPasswordComponent } from './../forgot-password/forgot-password.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +16,11 @@ export class LoginComponent implements OnInit {
   erreur = 0;
   err:number=0;
 
-  constructor(private authService: AuthService, private router: Router) {}
+ 
+  constructor(private authService: AuthService, private router: Router) {
+
+  }
+  
 
   ngOnInit(): void {}
 
@@ -23,14 +29,39 @@ export class LoginComponent implements OnInit {
       next: (data) => {
       let jwToken = data.headers.get('Authorization')!;
       this.authService.saveToken(jwToken);
-      this.router.navigate(['/home']); 
+      this.router.navigate(['/docs']); 
       },
       error: (err: any) => {
       this.err = 1; 
       }
-      });
-  }
+     
+    });
+   
+    localStorage.setItem('email', this.user.email);
+    localStorage.setItem('password', this.user.password);
 
 
-  
+    const email = (localStorage.getItem('email'));
+    const password = (localStorage.getItem('password'));
+
+
+    console.log(email);
+    console.log(password);
+
+
+
+
+      }
+
+
+      public hidePassword = true;
+
+public togglePassword(): void {
+  this.hidePassword = !this.hidePassword;
+}
+    
+
+       
+       
+      
 }

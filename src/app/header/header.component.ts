@@ -1,6 +1,8 @@
+import { UserService } from './../services/user.service';
 import { User } from './../model/user.model';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,33 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   users!: User[];
-  constructor(public authService: AuthService) {}
+  username! : string;
+  constructor(public authService: AuthService , public userService:UserService , private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(){
+    this.authService.loadToken();
+    if (this.authService.getToken()==null ||
+    this.authService.isTokenExpired())
+    this.router.navigate(['/login']);
+  }
+
+  
 
   onLogout() {
     this.authService.logout();
   }
+
+  
+
+
+  
+    
 }
+
+
+
+
+
+
+
+

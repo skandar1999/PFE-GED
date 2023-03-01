@@ -12,20 +12,34 @@ export class SignupComponent implements OnInit {
   newUser = new User();
   
   users! : User[];
+  erreur = 0;
+  err:number=0;
   
-  constructor(private authService: AuthService , private router: Router) {}
+  constructor(private authService: AuthService , private router: Router ) {}
 
   ngOnInit(): void {}
 
 
+  userCreate() {
+    this.authService.ajouterUser(this.newUser).subscribe(
+      us => {
+        console.log(us);
+        if (us) {
+          alert('L\'utilisateur a été inscrit avec succès');
+          this.router.navigate(['login']);
+        }
+      },
+      error => {
+        this.err = 1;
+      }
+    );
+  }
+  
 
-  userCreate(){
-    this.authService.ajouterUser(this.newUser)
-    .subscribe(us => {
-    console.log(us);
-    this.router.navigate(['login']);
-    });
- 
-    }
+  public hidePassword = true;
+
+public togglePassword(): void {
+  this.hidePassword = !this.hidePassword;
+}
 
 }

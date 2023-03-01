@@ -98,3 +98,11 @@ strong {
 .container {
   margin-top: -40px;
 }
+
+
+.toggle-password {
+  cursor: pointer;
+  display: inline-block;
+  
+}
+

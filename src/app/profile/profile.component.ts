@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/user.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,11 +9,23 @@ import { User } from '../model/user.model';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  newUser = new User();
+  
+  id!: number;
+  user = new User();
+  users! : User[];
+  status = false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(public authService: AuthService,private activatedRoute: ActivatedRoute) { 
   }
 
-}
+  ngOnInit(): void {
+  
+  }
+
+ 
+  }
+
+
+
+
+

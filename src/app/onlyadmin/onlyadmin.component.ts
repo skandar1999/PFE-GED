@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/user.model';
 import { AuthService } from '../services/auth.service';
@@ -9,21 +10,19 @@ import { AuthService } from '../services/auth.service';
 })
 export class OnlyadminComponent implements OnInit {
   
-  status = false;
-addToggle()
-{
-  this.status = !this.status;
-}
+
 user = new User();
 users! : User[];
-  constructor( private authService: AuthService) { }
+  constructor( private authService: AuthService ,private userService: UserService) { }
 
   ngOnInit(): void {
     this.chargerUser();
   }
 
+  
+
   chargerUser(){
-    this.authService.listeUsers().subscribe(user => {
+    this.userService.listeUsers().subscribe(user => {
     console.log(user);
     this.users = user;
     });
@@ -36,6 +35,7 @@ users! : User[];
   this.authService.supprimerUser(user.id).subscribe(() => {
   console.log("user supprimé");
   this.chargerUser();
+  
   });
   }
   

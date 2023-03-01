@@ -4,6 +4,14 @@
 >
   <div class="container">
     <a class="navbar-brand font-weight-bold"  routerLink="">GED</a>
+
+    <div class="search-form" *ngIf="authService.isloggedIn">
+      <input type="text" name="search" placeholder="Rechercher...">
+      <button type="submit">Recherche</button>
+    </div>
+    
+
+
     <button
       class="navbar-toggler"
       type="button"
@@ -19,20 +27,10 @@
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
         <li class="list-inline-item">
-          <div class="input-group rounded">
-            <input
-              type="search"
-              class="form-control rounded"
-              placeholder="Rechercher dans GED"
-              aria-label="Search"
-              aria-describedby="search-addon"
-            />
-            <span class="input-group-text border-0" id="search-addon">
-              <a routerLink="#" class="fa fa-search" aria-hidden="true"></a>
-            </span>
-          </div>
+          
         </li>
       </ul>
+
       <ul class="navbar-nav mx-auto">
         <li class="nav-item dropdown dropdown-slide">
           <a
@@ -48,14 +46,15 @@
           >
             Nouveaux
           </a>
+
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
             <li>
-              <a routerLink=""> Nouveaux dossier </a>
+              <a routerLink="/docs"> Nouveaux dossier </a>
             </li>
             <li>
-              <a routerLink=""> Importer un dossier</a>
+              <a routerLink="/docs"> Importer un dossier</a>
             </li>
-            <li><a routerLink="">Importer un fichier</a></li>
+            <li><a routerLink="/docs">Importer un fichier</a></li>
           </ul>
         </li>
 
@@ -74,7 +73,7 @@
             Pages
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-            <li><a routerLink="">à propos</a></li>
+            <li><a routerLink="/about">à propos</a></li>
             <li><a routerLink="/contact" >Contact</a></li>
           </ul>
         </li>
@@ -93,7 +92,7 @@
             aria-haspopup="true"
             aria-expanded="false"
             class="fa fa-user"
-          > Connecté
+          > connecté
           
           </a>
       
@@ -102,11 +101,13 @@
             aria-labelledby="navbarDropdown5">
             
             <li>
-              <a routerLink="/profile-details">mon profile </a>
+              <a routerLink="/profile">mon profile </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" routerLink="/docs">Mes documents </a>
+              <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/admin"  >dashboard </a>
             </li>
+            
             
             
             <li>

@@ -11,7 +11,7 @@
           </div>
 
           <div class="text-center heading">
-            <h3 class="mb-2">Connectez-vous à votre compte</h3>
+            <h1 class="mb-2">Connectez-vous </h1>
             <p class="lead">
               Vous n'avez pas de compte ?
               <a routerLink="/signup">S'inscrire gratuitement</a>
@@ -27,15 +27,20 @@
               [(ngModel)]="user.email"
             />
           </div>
+         
 
           <div class="field">
             <span class="fa fa-lock"> </span>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              [(ngModel)]="user.password"
-            />
+            
+          <input type="{{ hidePassword ? 'password' : 'text' }}" 
+          class="form-control" id="password"
+           placeholder="Mot de passe" 
+           [(ngModel)]="user.password">
+           <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()"></i>
+            </span>
+          </div>
           </div>
 
           <p class="lead">

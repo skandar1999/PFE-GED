@@ -1,8 +1,11 @@
+import { Data } from 'popper.js';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'} )
 };
@@ -13,45 +16,98 @@ const httpOptions = {
 })
 export class AuthService {
   users!: User[];
-
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
   public roles!: string[];
+ 
+
 
   GetApi: string='https://127.0.0.1:8000/getAllUsers';
   apiURL: string='https://127.0.0.1:8000/userCreate';
   apilogin: string='https://127.0.0.1:8000/api/login_check';
   deleteapi: string='https://127.0.0.1:8000/delete';
-
-
+  userById: string='https://127.0.0.1:8000/getUser';
+  
   token! : string;
-  constructor(private router: Router, private http : HttpClient) {}
+  
+
+  private helper = new JwtHelperService();
+
+  constructor(private router: Router, private http : HttpClient) {
+    
+  }
+
+
   
   login(user : User)
 {
 return this.http.post<User>(this.apilogin, user , {observe:'response'});
+
+
 }
 
-saveToken(jwt:string){
-  localStorage.setItem('jwt',jwt);
-  this.token = jwt;
-  this.isloggedIn = true; 
-  }
- 
+
+
+        saveToken(jwt:string){
+          localStorage.setItem('jwt',jwt);
+          this.token = jwt;
+          this.isloggedIn = true; 
+           }
+
+        decodeJWT()
+          { if (this.token == undefined)
+         return;
+        const decodedToken = this.helper.decodeToken(this.token);
+        this.roles = decodedToken.roles;
+        this.loggedUser = decodedToken.sub;
+        }
+
+        loadToken() {
+          this.token = localStorage.getItem('jwt')!;
+          this.decodeJWT();
+          }
+
+
+          isTokenExpired(): Boolean
+          {
+          return this.helper.isTokenExpired(this.token); }
+
+    getToken():string {
+    return this.token;
+    }
 
 
   listeUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.GetApi);
     }
     
+    consulterUser(id: number): Observable<User> {
+      const url = `${this.GetApi}/${id}`;
+      let jwt = this.getToken();
+      jwt = "Bearer "+jwt;
+      let httpHeaders = new HttpHeaders({"Authorization":jwt})
+      return this.http.get<User>(url,{headers:httpHeaders});
+      }
+
+
     ajouterUser( user: User):Observable<User>{
-      return this.http.post<User>(this.apiURL, user, httpOptions);
+      let jwt = this.getToken();
+      jwt = "Bearer " + jwt;
+        let httpHeaders = new HttpHeaders({"Authorization":jwt})
+        return this.http.post<User>(this.apiURL, user, {headers:httpHeaders});
+
       }
 
       supprimerUser(id : number) {
         const url = `${this.deleteapi}/${id}`;
-        return this.http.delete(url, httpOptions);
+        let jwt = this.getToken();
+        jwt = "Bearer "+jwt;
+        let httpHeaders = new HttpHeaders({"Authorization":jwt})
+        return this.http.delete(url, {headers:httpHeaders});
+
         }
+
+        
 
      
  SignIn(user: User): Boolean {
@@ -67,6 +123,7 @@ saveToken(jwt:string){
       }
     });
     return validUser;
+    
   }
 
   isUser(): Boolean {
@@ -79,11 +136,25 @@ saveToken(jwt:string){
   
 
   logout() {
-    this.isloggedIn = false;
     this.loggedUser = undefined!;
     this.roles = undefined!;
-    localStorage.removeItem('loggedUser');
-    localStorage.setItem('isloggedIn', String(this.isloggedIn));
+    this.token= undefined!;
+    this.isloggedIn = false;
+    localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
+
   }
-}
+
+
+  isAdmin():Boolean{
+    if (!this.roles) //this.roles== undefiened
+    return false;
+    return (this.roles.indexOf('ADMIN') >-1);
+    }
+    
+
+   }
+  
+ 
+
+  

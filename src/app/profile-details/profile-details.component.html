@@ -41,22 +41,22 @@
           >
         </div>
         <div class="nav flex-column nav-pills">
-          <a class="nav-link" routerLink="/signup">Se deconnecter</a>
+          <a href="/login" class="nav-link"(click)="onLogout()">Se déconnecter</a>
         </div>
       </div>
 
       <div class="col-12 col-md-7 col-sm-12 col-lg-9">
         <div class="tab-pane fade show active" id="settings" role="tabpanel">
-          <div class="acccount-settings"  >
+          <div class="acccount-settings"  *ngIf="user">
             <h4 class="mb-4">Informations sur le compte</h4>
-
-            
+              <p></p>
+            <h4></h4>
             <form action="#">
               <div class="form-row">
                 <div class="col-lg-6">
-                  <div class="form-group">
+                  <div class="form-group" >
                     <label>Nom</label>
-                    <input type="text" class="form-control" placeholder="Nom" value=""/>
+                    <input type="text" class="form-control" placeholder="Nom"  />
                   </div>
                 </div>
                 <div class="col-lg-6">
@@ -105,9 +105,8 @@
                 <input type="text" class="form-control" placeholder="" />
               </div>
 
-              <a href="#" class="btn btn-dark">Sauvegarder les changements</a
-              ><br />
-              <button type="submit" class="btn btn-danger" (click)="supprimerUser(user)">Supprimer mon compte</button>
+              <button type="submit" routerLink="/" class="btn btn-success">Sauvegarder les changements</button><br />
+              <button type="submit" class="btn btn-danger" onclick="" >Supprimer mon compte</button>
              </form>
           </div>
         </div>
@@ -115,5 +114,4 @@
     </div>
   </div>
 </section>
-
 

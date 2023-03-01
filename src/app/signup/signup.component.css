@@ -53,7 +53,6 @@ input:active input:hover {
 
 .action .btn-google {
   background-color: #faf1f1;
-
   color: #fb5c42;
   cursor: pointer;
   margin-bottom: 15px;
@@ -85,4 +84,11 @@ input:active input:hover {
 
 .container {
   margin-top: -40px;
+}
+
+
+.toggle-password {
+  cursor: pointer;
+  display: inline-block;
+  
 }

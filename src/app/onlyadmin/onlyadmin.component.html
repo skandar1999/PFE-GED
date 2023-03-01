@@ -5,14 +5,14 @@
                     <h2>Commandes récentes</h2>
                     
                 </div>
-  
-                <table>
+                <div class="table-responsive">
+                <table class="table table-hover">
                     <thead class="thead-dark">
 
                         <tr>
                             
                             <td>Email</td>
-                            <td>password</td>
+                            <td>username</td>
                             <td>Roles</td>
                             <td>Action</td>
                         </tr>
@@ -22,19 +22,20 @@
                         <tr >
                            
                         <td>{{user.email}}</td>
-                        <td>{{user.password}}</td>
+                        <td>{{user.username}}</td>
                         <td>{{user.roles}}</td>
                         <td>
-                            <div class="action">
-                                <a type="submit" class="btn btn-danger" (click)="supprimerUser(user)">
+                            <div class="action1">
+                                <a type="submit" class="btn" (click)="supprimerUser(user)">
                                   Supprimer
                                 </a>
-                                
+                 
                               </div>
           
                         </tr>
                         </tbody>
                 </table>
+            </div>
             </div>
   
             <!-- ================= New Customers ================ -->
@@ -43,7 +44,9 @@
                     <h2>Utilisateur récents</h2>
                 </div>
   
-                <table>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                
                     <tbody *ngFor="let user of users">
                         <tr>
                         <td width="60px">
@@ -57,6 +60,7 @@
                     
                     
                 </table>
+            </div>
             </div>
         </div>
   

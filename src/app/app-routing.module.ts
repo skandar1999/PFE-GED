@@ -1,3 +1,4 @@
+import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
@@ -10,20 +11,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { DocsComponent } from './docs/docs.component';
 import { OnlyadminComponent } from './onlyadmin/onlyadmin.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { UserGuard } from './user.guard';
+import { UserGuard } from './guard/user.guard';
+import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'profile-details', component: ProfileDetailsComponent,canActivate: [UserGuard]},
-  { path: 'docs', component: DocsComponent , canActivate: [UserGuard] },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'admin', component: OnlyadminComponent, },
-  { path: 'app-forbidden', component: ForbiddenComponent },
+  { path: 'login', component: LoginComponent , title:"Connexion" },
+  { path: 'signup', component: SignupComponent , title:"S'inscrire" },
+  { path: 'forgot-password', component: ForgotPasswordComponent ,title:"Réinitialiser le mot de passe"  },
+  { path: 'profile-details', component: ProfileDetailsComponent,canActivate: [UserGuard] , title:"Profile"},
+  { path: 'docs', component: DocsComponent , canActivate: [UserGuard],  title:"Home"},
+  { path: 'profile', component: ProfileComponent, title:"Profile" },
+  { path: 'contact', component: ContactComponent , title:"Contact"},
+  { path: 'admin', component: OnlyadminComponent , title:"Admin"},
+  { path: 'app-forbidden', component: ForbiddenComponent , title:"app-forbidden" },
   { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutUsComponent , title:"A propos" },
+
   
 ];
 
