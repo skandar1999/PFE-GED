@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 })
 export class UserService {
   users!: User[];
-  username!:string;
+  email!:string;
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
   public roles!: string[];
@@ -18,7 +18,7 @@ export class UserService {
   apiURL: string='https://127.0.0.1:8000/userCreate';
   apilogin: string='https://127.0.0.1:8000/api/login_check';
   deleteapi: string='https://127.0.0.1:8000/delete';
-  rechuser: string='https://127.0.0.1:8000/finduser';
+  finduser: string='https://127.0.0.1:8000/finduser';
 
 
   constructor(private http : HttpClient, private authService: AuthService   ) { }
@@ -33,6 +33,7 @@ export class UserService {
 
     }
 
+  
     consulterUser(id: number): Observable<User> {
       const url = `${this.GetApi}/${id}`;
       let jwt = this.authService.getToken();
@@ -41,11 +42,14 @@ export class UserService {
       return this.http.get<User>(url,{headers:httpHeaders});
       }
       
-    
-      chercheuser( username: string):Observable< User[]> {
-        const url = `${this.rechuser}/username/${this.username}`;
+
+      rechercherParUsername(username: string):Observable< User[]> {
+        const url = `${this.finduser}/${username}`;
         return this.http.get<User[]>(url);
         }
+        
+    
+    
     
       
 

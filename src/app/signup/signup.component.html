@@ -8,9 +8,10 @@
             class="alert alert-warning alert-dismissible fade show"
             *ngIf="err==1"
           >
-            <strong>Désolé, cette adresse e-mail est déjà utilisée.</strong>
+            <strong>Veuillez vérifier vos informations </strong>
+            
           </div>
-          
+
           <div class="text-center heading">
             <h1 class="mb-2">Inscription</h1>
             <p class="lead">
@@ -29,19 +30,22 @@
                   placeholder="Email"
                   name="email" 
                   [(ngModel)]="newUser.email"
-
+                  required #emailInput="ngModel"  
                 />
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)"></div>
               </div>
 
               <div class="field">
+                
                 <span class="fa fa-user"> </span>
                 <input
                   type="text"
                   placeholder="Username"
                   name="username" 
                   [(ngModel)]="newUser.username"
-
-                />
+                  required #usernameInput="ngModel"           />
+                  <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)"></div>
+                 
               </div>
 
               <div class="field">
@@ -50,10 +54,12 @@
               <input type="{{ hidePassword ? 'password' : 'text' }}" 
               class="form-control" id="password"
                placeholder="Mot de passe" 
-               [(ngModel)]="newUser.password">
+               [(ngModel)]="newUser.password" 
+               required #passwordInput="ngModel" >
+               <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)"></div>
                <div class="input-group-append">
                 <span class="input-group-text">
-                  <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()"></i>
+                  <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()" ></i>
                 </span>
               </div>
               </div>
@@ -75,9 +81,9 @@
               <div class="action">
                 <button type="submit" class="btn btn-submit"  (click)="userCreate()" >Confirmer</button>
                 <button class="btn btn-google">
-                  <span class="icon">
-                    <img src="../../../assets/images/google.jpg" /> Continuer
-                    avec Google
+                  <span >
+                    <asl-google-signin-button class="icon" ></asl-google-signin-button>
+                    Continuer avec Google
                   </span>
                 </button>
               </div>

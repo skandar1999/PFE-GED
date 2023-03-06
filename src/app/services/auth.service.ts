@@ -2,9 +2,12 @@ import { Data } from 'popper.js';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../model/user.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from "@abacritt/angularx-social-login";
+
 
 const httpOptions = {
   headers: new HttpHeaders( {'Content-Type': 'application/json'} )
@@ -16,6 +19,9 @@ const httpOptions = {
 })
 export class AuthService {
   users!: User[];
+  private loggedInUser!: SocialUser;
+
+
   public loggedUser!: string;
   public isloggedIn: Boolean = false;
   public roles!: string[];
@@ -33,18 +39,16 @@ export class AuthService {
 
   private helper = new JwtHelperService();
 
-  constructor(private router: Router, private http : HttpClient) {
-    
-  }
+  constructor(private router: Router,
+               private http : HttpClient ,private authService: SocialAuthService, private googleService: SocialAuthService ) {
+ }
 
 
-  
+
+
   login(user : User)
-{
-return this.http.post<User>(this.apilogin, user , {observe:'response'});
-
-
-}
+        {
+      return this.http.post<User>(this.apilogin, user , {observe:'response'}); }
 
 
 
@@ -126,6 +130,9 @@ return this.http.post<User>(this.apilogin, user , {observe:'response'});
     
   }
 
+
+
+
   isUser(): Boolean {
     if (!this.isloggedIn)
       //this.roles== undefiened
@@ -153,6 +160,9 @@ return this.http.post<User>(this.apilogin, user , {observe:'response'});
     }
     
 
+
+
+    
    }
   
  

@@ -1,0 +1,33 @@
+<br>
+<div class="container">
+    <form class="form-inline">
+    
+    <div class="form-group " >
+    <input #searchTerm (keyup)="onKeyUp(searchTerm.value)"  type="text" placeholder="Recherche..." class="form-control" [(ngModel)]="username" name="username">
+    <button type="submit" (click)="rechercherParUser()" class="btn">Recherche</button>
+    </div>
+    
+
+
+
+    </form><br>
+
+
+            <div class="card" *ngFor=" let user of users">
+                <div class="container" >
+                  <img alt="image " >
+                
+            
+                      <h2>{{user.username}}</h2>
+                  <p class="title" >{{user.email}}</p>
+                  <p class="title" >{{user.roles}}</p>
+                  <p class="title"  class="fa fa-phone"> 23787064</p>
+                    
+                
+                </div>
+              </div>
+              
+          
+
+            <button  routerLink="/admin" type="submit"  class="btn2">Retour</button>
+            </div>

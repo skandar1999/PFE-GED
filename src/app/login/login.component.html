@@ -7,7 +7,7 @@
             class="alert alert-warning alert-dismissible fade show"
             *ngIf="err==1"
           >
-            <strong>Email ou mot de passe erronés!</strong>
+            <strong>Email ou mot de passe invalide!</strong>
           </div>
 
           <div class="text-center heading">
@@ -48,13 +48,14 @@
           </p>
 
           <div class="action">
-            <button type="submit" class="btn btn-submit" (click)="onLoggedin()">
+            <button type="submit" class="btn btn-submit" (click)="onLoggedin()" >
               Confirmer
             </button>
-            <button class="btn btn-google">
-              <span class="icon">
-                <img src="../../../assets/images/google.jpg" /> Continuer avec
-                Google
+
+            <button class="btn btn-google" type="submit" >
+              <span >
+                <asl-google-signin-button class="icon"></asl-google-signin-button>
+                Continuer avec Google
               </span>
             </button>
           </div>

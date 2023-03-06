@@ -1,24 +1,21 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { User } from '../model/user.model';
-import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-recherche-par-nom',
+  templateUrl: './recherche-par-nom.component.html',
+  styleUrls: ['./recherche-par-nom.component.css']
 })
-export class ProfileComponent implements OnInit {
-  
-  id!: number;
-  
-  status = false;
+export class RechercheParNomComponent implements OnInit {
   username!:string;
   user = new User();
   users! :any[];
   allUsers! :any[];
   searchTerm!: string;
+ 
+
 
   constructor(private userService: UserService , private authService: AuthService) { }
 
@@ -44,10 +41,7 @@ export class ProfileComponent implements OnInit {
       }
       
     
- 
-  }
+    
 
 
-
-
-
+}

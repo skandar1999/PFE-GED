@@ -10,9 +10,15 @@ import { AuthService } from '../services/auth.service';
 })
 export class OnlyadminComponent implements OnInit {
   
-
+  status = false;
+  addToggle()
+  {
+    this.status = !this.status;       
+  }
 user = new User();
 users! : User[];
+username!:string;
+
   constructor( private authService: AuthService ,private userService: UserService) { }
 
   ngOnInit(): void {
@@ -38,5 +44,12 @@ users! : User[];
   
   });
   }
+
+  rechercherParUser(){
+    this.userService.rechercherParUsername(this.username).
+    subscribe(user => {
+    this.users = user; 
+    console.log(user)});
+    }
   
 }

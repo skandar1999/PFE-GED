@@ -18,6 +18,12 @@ import { FormsModule} from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider} from '@abacritt/angularx-social-login';
+import { JwtInterceptor } from '@auth0/angular-jwt';
+import { TokenInterceptor } from './token.interceptor';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ForbiddenComponent,
     SignupComponent,
     ProfileComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    RechercheParNomComponent
   ],
   imports: [
     BrowserModule,
@@ -42,10 +49,35 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule, 
-    FormsModule
+    FormsModule,
+    SocialLoginModule
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '194123244591-5tohsblsdtojjkm0odjuij89gk74upfm.apps.googleusercontent.com'
+            )
+          },
+          
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+  ],
+
+
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

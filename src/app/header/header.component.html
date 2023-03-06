@@ -5,12 +5,7 @@
   <div class="container">
     <a class="navbar-brand font-weight-bold"  class="mytitle" routerLink="">GED</a>
 
-    <div class="search-form" *ngIf="authService.isloggedIn">
-      <input type="text" name="search" placeholder="Rechercher...">
-      <button type="submit">Recherche</button>
-    </div>
-    
-
+   
 
     <button
       class="navbar-toggler"
@@ -59,10 +54,13 @@
         </li>
 
         <!-- Pages -->
+       
+
+
         <li class="nav-item dropdown dropdown-slide ">
           <a
             class="nav-link dropdown-toggle"
-            href="#"
+            routerLink="/about"
             id="navbarDropdown4"
             role="button"
             data-delay="350"
@@ -70,13 +68,25 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Pages
+          à propos
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-            <li><a routerLink="/about">à propos</a></li>
-            <li><a routerLink="/contact" >Contact</a></li>
-          </ul>
+          
         </li>
+        <li class="nav-item dropdown dropdown-slide ">
+          <a
+            class="nav-link dropdown-toggle"
+            routerLink="/contact"
+            id="navbarDropdown4"
+            role="button"
+            data-delay="350"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          Contact   </a>
+          
+        </li>
+
       </ul>
 
       <ul class="navbar-nav m-auto">
@@ -105,7 +115,7 @@
             </li>
             <li class="nav-item active">
               <a class="nav-link" routerLink="/docs">Mes documents </a>
-              <a *ngIf="authService.isAdmin()" class="nav-link" routerLink="/admin"  >dashboard </a>
+              <a  class="nav-link" routerLink="/admin"  >dashboard </a>
             </li>
             
             

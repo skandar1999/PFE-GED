@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
       us => {
         console.log(us);
         if (us) {
-          alert('L\'utilisateur a été inscrit avec succès');
+          alert('Vous vous-êtes inscrit avec succès !');
           this.router.navigate(['login']);
         }
       },

@@ -11,7 +11,7 @@
 
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent justify-content-center">
-              <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+              <li class="breadcrumb-item"><a routerLink="/docs">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">
                 mes documents
               </li>
@@ -41,12 +41,17 @@
           <a href="/login" class="nav-link"(click)="onLogout()">Se deconnecter</a>
         </div>
       </div>
-
+     
       <div class="col-12 col-md-7 col-sm-12 col-lg-9">
+        <div class="search-form" >
+          <input type="text" name="search" placeholder="Recherche">
+          <button type="submit">Recherche</button>
+        </div><br>
         vous pouvez consulter Vos documents, Créer un
         <a routerLink="/">Nouveaux dossier</a>,
         <a routerLink="/">Impoter un dossier</a>,
         <a routerLink="/">Impoter un fichier</a>
+        
       </div>
     </div>
   </div>

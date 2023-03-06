@@ -1,3 +1,4 @@
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
@@ -27,8 +28,8 @@ const routes: Routes = [
   { path: 'app-forbidden', component: ForbiddenComponent , title:"app-forbidden" },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutUsComponent , title:"A propos" },
+  {path: "recherche", component : RechercheParNomComponent},
 
-  
 ];
 
 @NgModule({
