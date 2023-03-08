@@ -44,14 +44,11 @@ export class AuthService {
  }
 
 
-
-
-  login(user : User)
+ login(user : User)
         {
-      return this.http.post<User>(this.apilogin, user , {observe:'response'}); }
-
-
-
+      return this.http.post<any>(this.apilogin, user ); 
+    }
+    
         saveToken(jwt:string){
           localStorage.setItem('jwt',jwt);
           this.token = jwt;
@@ -66,7 +63,7 @@ export class AuthService {
         this.loggedUser = decodedToken.sub;
         }
 
-        loadToken() {
+          loadToken() {
           this.token = localStorage.getItem('jwt')!;
           this.decodeJWT();
           }
@@ -76,9 +73,9 @@ export class AuthService {
           {
           return this.helper.isTokenExpired(this.token); }
 
-    getToken():string {
-    return this.token;
-    }
+         getToken():string {
+         return this.token;
+         }
 
 
   listeUsers(): Observable<User[]>{

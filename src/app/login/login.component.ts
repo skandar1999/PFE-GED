@@ -31,27 +31,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
               
  
-        onLoggedin():void {
-        this.authService.login(this.user)
-        .subscribe({next: (data) => {
-          let jwToken = data.headers.get('Authorization')!;
-          this.authService.saveToken(jwToken);
-          this.router.navigate(['/docs']); 
-          },
-            error: (err: any) => {
-            this.err = 1; 
-          }
-     
-    });
-   
-    localStorage.setItem('email', this.user.email);
-    localStorage.setItem('password', this.user.password);
-    const email = (localStorage.getItem('email'));
-    const password = (localStorage.getItem('password'));
-    console.log(email);
-    console.log(password);
-
-      } 
+  onLoggedin():void {
+        
+    this.authService.login(this.user)
+    .subscribe( (data) => {
+      //let jwToken = data.headers.get('Authorization')!;
+     // let httpHeaders = new HttpHeaders({"Authorization":data})
+    
+      this.authService.saveToken(data.token);
+      this.router.navigate(['/docs']); 
+      },);
+  } 
 
 
       public hidePassword = true;

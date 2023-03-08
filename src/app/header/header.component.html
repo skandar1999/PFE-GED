@@ -92,7 +92,7 @@
       <ul class="navbar-nav m-auto">
         <li class="nav-item dropdown dropdown-slide">
           <a *ngIf="authService.isloggedIn"
-            routerLink="/login"
+            
             class="nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown3"
@@ -103,7 +103,6 @@
             aria-expanded="false"
             class="fa fa-user"
           > connecté
-          
           </a>
       
           <ul
@@ -111,7 +110,7 @@
             aria-labelledby="navbarDropdown5">
             
             <li>
-              <a routerLink="/profile">mon profile </a>
+              <a routerLink="/profile-details" >mon profile </a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" routerLink="/docs">Mes documents </a>

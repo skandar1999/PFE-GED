@@ -3,6 +3,7 @@ import { User } from './../model/user.model';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -12,13 +13,14 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   users!: User[];
   username! : string;
+  curentUser:any;
+  token!:any;
+
   constructor(public authService: AuthService , public userService:UserService , private router: Router) {}
 
   ngOnInit(){
-    this.authService.loadToken();
-    if (this.authService.getToken()==null ||
-    this.authService.isTokenExpired())
-    this.router.navigate(['/login']);
+    this.token =window.localStorage.getItem('jwt')
+    this.curentUser= jwt_decode(this.token);
   }
 
   
