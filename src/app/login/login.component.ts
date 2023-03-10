@@ -40,7 +40,11 @@ export class LoginComponent implements OnInit {
     
       this.authService.saveToken(data.token);
       this.router.navigate(['/docs']); 
-      },);
+      },
+      error => {
+        this.err = 1;
+      });
+
   } 
 
 

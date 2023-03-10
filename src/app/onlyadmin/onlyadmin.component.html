@@ -1,108 +1,62 @@
-<!-- SIDEBAR -->
-<section id="sidebar" [ngClass]="status ? 'hide' : ''">
-    <a href="#" class="brand">
-      <i class='bx bxs-smile'></i>
-      <span class="text">Dashboard</span>
-    </a>
-    <ul class="side-menu top">
-      <li class="active">
-        <a href="#">
-          <i class='bx bxs-dashboard' ></i>
-          <span class="text">Dashboard</span>
-        </a>
-      </li>
-     
-      <li>
-        <a routerLink="/recherche">
-            <i class='bx bx-search' ></i>        
-            <span>Rechercher utilisateur</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-message-dots' ></i>
-          <span class="text">Message</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bxs-group' ></i>
-          <span class="text">Équipe</span>
-        </a>
-      </li>
-    </ul>
-    <ul class="side-menu">
-      <li>
-        <a href="#">
-          <i class='bx bxs-cog' ></i>
-          <span class="text">Paramètres</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="logout">
-          <i class='bx bxs-log-out-circle' ></i>
-          <span class="text">Déconnexion</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-  <!-- SIDEBAR -->
-  
-  <section id="content">
-    <main>
-
-      <div class="table-data">
-        <div class="order">
-          <div class="head">
-            
-            <h3>Liste d'utilisateurs</h3>
-           
-          </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Roles</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let user of users">
-              <tr>
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.roles}}</td>
-                <td>
-                    <div class="action1">
-                        <a type="submit" class="btn" (click)="supprimerUser(user)">
-                          Supprimer
-                        </a>
-                        <a type="submit" class="btn" >
-                            Modifer
-                          </a>
-         
-                      </div></td>
-              </tr>
-             
-            </tbody>
-          </table>
+<section class="user-dashboard page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-5 col-sm-12 col-lg-3">
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link active" routerLink="/amdin">Dashboard</a>
         </div>
-        <div class="todo" >
-          <div class="head">
-            <h3>utilisateurs Recents </h3>
-           
-          </div>
-          <ul class="todo-list" *ngFor="let user of users">
-            <li class="completed">
-                <i class="fa fa-user"></i>
-                <h5>{{user.email}} </h5>
-              <i class='bx bx-dots-vertical-rounded' ></i>
-            </li>
-           
-            
-          </ul>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link " routerLink="/recherche">Rechercher utilisateur</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="">Message</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="">Equipe</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" (click)="onLogout()">Se deconnecter</a>
         </div>
       </div>
-    </main>
-  </section>
-  <!-- CONTENT -->
+
+      <div class="col-12 col-md-7 col-sm-12 col-lg-9">
+        <div class="tab-pane fade show active" id="settings" role="tabpanel">
+          <div class="acccount-settings">
+            <h4 class="mb-4">Liste d'utilisateurs</h4>
+
+            <div class="table-data">
+              <div class="order">
+                <div class="head">
+                  
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>roles</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let user of users">
+                    <tr>
+                      <td>{{user.username}}</td>
+                      <td>{{user.email}}</td>
+                      <td>{{user.roles}}</td>
+                      <td>
+                        <div class="action1">
+                          <a type="submit" class="btn" (click)="supprimerUser(user)">Supprimer</a>
+                          <a type="submit" class="btn">Modifier</a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

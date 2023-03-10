@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
 import { AuthService } from './auth.service';
@@ -18,10 +19,14 @@ export class UserService {
   apiURL: string='https://127.0.0.1:8000/userCreate';
   apilogin: string='https://127.0.0.1:8000/api/login_check';
   deleteapi: string='https://127.0.0.1:8000/delete';
-  finduser: string='https://127.0.0.1:8000/finduser';
+  findUsername: string='https://127.0.0.1:8000/findByUsername';
+  findUserEmail: string='https://127.0.0.1:8000/findByEmail';
+  updateProfile: string='https://127.0.0.1:8000/update';
+  userbyid: string='https://127.0.0.1:8000/findById';
 
 
-  constructor(private http : HttpClient, private authService: AuthService   ) { }
+  constructor(private http : HttpClient, private authService: AuthService 
+    ) { }
   public data: string | null = null;
 
 
@@ -44,13 +49,26 @@ export class UserService {
       
 
       rechercherParUsername(username: string):Observable< User[]> {
-        const url = `${this.finduser}/${username}`;
+        const url = `${this.findUsername}/${username}`;
         return this.http.get<User[]>(url);
         }
         
     
+        rechercherParEmail(email: string):Observable< User[]> {
+          const url = `${this.findUserEmail}/${email}`;
+          return this.http.get<User[]>(url);
+          }
+          
+          update(id: number, data: any): Observable<User> {
+            const url = `${this.updateProfile}/${id}`;
+            return this.http.put<User>(url, data);
+          }
     
-    
-      
+          
+          consulterUserById(id: number): Observable<User> {
+            const url = `${this.userbyid}/${id}`;
+            return this.http.get<User>(url);
+          }
+          
 
 }

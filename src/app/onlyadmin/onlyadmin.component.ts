@@ -10,11 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class OnlyadminComponent implements OnInit {
   
-  status = false;
-  addToggle()
-  {
-    this.status = !this.status;       
-  }
+  
 user = new User();
 users! : User[];
 username!:string;
@@ -52,4 +48,8 @@ username!:string;
     console.log(user)});
     }
   
+
+    onLogout() {
+      this.authService.logout();
+    }
 }

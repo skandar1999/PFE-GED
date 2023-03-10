@@ -1,27 +1,69 @@
 .collapse {
-  margin-left: 50px;
-  padding: 10px;
+  margin-left: 100px;
+  padding: 1px;
 }
-
-.fa-search {
-  border: none;
-}
-
-.connect
-{ font-weight: bold;
-color: black;}
-
-.connect:hover
-{ font-weight: bold;
-color: #fb5c42;}
 
 
 .mytitle{
   font-size: 25px;
-  font-family: "Bahnschrift SemiBold" , "Brush Script MT" ;
+  font-family: "Bahnschrift SemiBold", sans-serif;
   color: black;
 }
 
 .mytitle:hover{
   text-decoration: underline;
+} 
+
+/* Navbar style */
+.navbar {
+  margin-top: -13px;
+  padding: 0px;
+  box-shadow: 0  2px 8px rgba(7, 0, 0, 0.05);
+  background: #f9f9f9;
+
+}
+
+/* Navbar brand style */
+.navbar-brand {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navbar links style */
+.navbar-nav a {
+  color: #666666;
+  font-size: 18px;
+}
+
+.navbar-nav a:hover {
+  color: #000000;
+
+}
+
+
+.dropdown-item {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+
+/* Connect button style */
+
+
+.action .btn {
+  border-radius: 5px;
+  padding: 3.5px 7px;
+  border-color: rgb(228, 225, 225);
+  color: #666666;
+}
+
+
+.action .btn-submit:hover {
+  border-color: rgb(0, 0, 0);
+  color: #494949;
 }

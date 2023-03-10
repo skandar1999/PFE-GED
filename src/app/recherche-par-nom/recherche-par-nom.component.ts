@@ -42,6 +42,8 @@ export class RechercheParNomComponent implements OnInit {
       
     
     
-
+      onLogout() {
+        this.authService.logout();
+      }
 
 }

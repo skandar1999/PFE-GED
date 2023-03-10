@@ -33,7 +33,8 @@ export class AuthService {
   apilogin: string='https://127.0.0.1:8000/api/login_check';
   deleteapi: string='https://127.0.0.1:8000/delete';
   userById: string='https://127.0.0.1:8000/getUser';
-  
+
+
   token! : string;
   
 
@@ -44,11 +45,15 @@ export class AuthService {
  }
 
 
- login(user : User)
-        {
-      return this.http.post<any>(this.apilogin, user ); 
-    }
+         login(user : User)
+         {
+         return this.http.post<any>(this.apilogin, user ); 
+         }
+
+  
+
     
+
         saveToken(jwt:string){
           localStorage.setItem('jwt',jwt);
           this.token = jwt;
@@ -144,7 +149,7 @@ export class AuthService {
     this.roles = undefined!;
     this.token= undefined!;
     this.isloggedIn = false;
-    localStorage.removeItem('jwt');
+    window.localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
 
   }

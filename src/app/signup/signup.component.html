@@ -49,6 +49,19 @@
               </div>
 
               <div class="field">
+                
+                <span class="fa fa-phone"> </span>
+                <input
+                  type="text"
+                  placeholder="Telephone"
+                  name="mobile" 
+                  [(ngModel)]="newUser.mobile"
+                  required #mobileInput="ngModel"           />
+                  <div *ngIf="mobileInput.invalid && (mobileInput.dirty || mobileInput.touched)"></div>
+                 
+              </div>
+
+              <div class="field">
                 <span class="fa fa-lock"> </span>
                 
               <input type="{{ hidePassword ? 'password' : 'text' }}" 

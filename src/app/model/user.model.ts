@@ -4,4 +4,6 @@ export class User {
   password!: string;
   roles!: string[];
   username!:string;
+  mobile!:string;
+
 }

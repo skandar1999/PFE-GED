@@ -27,16 +27,19 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-5 col-sm-12 col-lg-3">
+        
         <div class="nav flex-column nav-pills">
-          <a class="nav-link active">contact</a>
-        </div>
-        <div class="nav flex-column nav-pills">
-          <a class="nav-link" routerLink="/docs">Mes documents</a>
+          <a class="nav-link" routerLink="/profile" *ngIf="authService.isloggedIn">Mon Profile</a>
         </div>
 
         <div class="nav flex-column nav-pills">
-          <a class="nav-link" routerLink="/profile-details">Mon compte</a>
+          <a class="nav-link" routerLink="/docs" *ngIf="authService.isloggedIn">Mes documents</a>
         </div>
+
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link active">contact</a>
+        </div>
+       
         <div class="nav flex-column nav-pills">
           <a href="/login" class="nav-link"(click)="onLogout()" class="nav-link" routerLink="/signup" *ngIf="authService.isloggedIn" >Se déconnecter</a>
         </div>

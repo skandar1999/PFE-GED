@@ -1,21 +1,50 @@
-
-
-    <div class="card">
-      <div class="container" *ngIf="user">
-        <img alt="image" >
-      
-        <p class="title">CEO & Founder</p>
-            <h2>Skandar Sabri</h2>
-        <p class="title" >sabriskandar3@gmail.com</p>
-        <p class="title"  class="fa fa-phone"> 23787064</p>
-        <div style="margin: 10px 0;">
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-  
+<section class="user-dashboard page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-10 col-md-5 col-sm-10 col-lg-3">
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link active" routerLink="/profile-details"
+            >Mon profile</a
+          >
         </div>
-        <p><button  routerLink="/profile-details"  >Modifier mon Profil</button></p>
+        
+       
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/docs">Mes documents</a>
+        </div>
+
+        <div class="nav flex-column nav-pills">
+          <a class="nav-link" routerLink="/contact">contact</a>
+        </div>
+        <div class="nav flex-column nav-pills">
+          <a href="/login" class="nav-link">Se déconnecter</a>
+        </div>
       </div>
-    </div>
-    
+
+      <div class="card">
+        <img src="../../../assets/images/sska.jpg" alt="John" style="width:100%"><br>
+        <h4>{{username}}</h4>
+        <p class="title">{{curentUser.email}}</p>
+        <p>{{mobile}}</p>
+       
+        <div>
+          <p><button  [routerLink]="['/profile-details',email]" >Modifier mon Profil</button></p>
+        </div>
+      </div>  
+              
+             
+      </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
