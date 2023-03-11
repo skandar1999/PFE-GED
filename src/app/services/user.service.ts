@@ -5,6 +5,10 @@ import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
 import { AuthService } from './auth.service';
 
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +25,14 @@ export class UserService {
   deleteapi: string='https://127.0.0.1:8000/delete';
   findUsername: string='https://127.0.0.1:8000/findByUsername';
   findUserEmail: string='https://127.0.0.1:8000/findByEmail';
-  updateProfile: string='https://127.0.0.1:8000/update';
+  updateUser: string='https://127.0.0.1:8000/updateUser';
   userbyid: string='https://127.0.0.1:8000/findById';
 
 
   constructor(private http : HttpClient, private authService: AuthService 
     ) { }
   public data: string | null = null;
+  private user: any;
 
 
   listeUsers(): Observable<User[]>{
@@ -59,9 +64,9 @@ export class UserService {
           return this.http.get<User[]>(url);
           }
           
-          update(id: number, data: any): Observable<User> {
-            const url = `${this.updateProfile}/${id}`;
-            return this.http.put<User>(url, data);
+          update(email: string, userData: any): Observable<any> {
+            const url = `${this.updateUser}/${email}`;
+            return this.http.put<User>(url, userData , httpOptions);
           }
     
           
@@ -69,6 +74,9 @@ export class UserService {
             const url = `${this.userbyid}/${id}`;
             return this.http.get<User>(url);
           }
+
+
+         
           
 
 }

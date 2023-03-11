@@ -62,26 +62,7 @@ input:active input:hover {
  background-color: #478bf8;
 }
 
-.alert {
-  border-radius: 0px;
-  background-color: #faf7f7;
-  color: #f8492e;
-  border-color: #ff0707;
-  padding: 13px;
-  margin-bottom: 20px;
 
-} 
-
-input[required] {
-  border-color: red;
-}
-
-.alert-success {
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-  color: #155724;
-  border-radius: 5px;
-}
 .action .btn-google .icon {
   display: inline-block;
   vertical-align: middle;
@@ -108,6 +89,14 @@ input[required] {
 
 .toggle-password {
   cursor: pointer;
-  display: inline-block;
-  
+  color: #666;
+  transition: color 0.3s;
 }
+
+
+.toggle-password:hover {
+  color: #000;
+}
+
+
+

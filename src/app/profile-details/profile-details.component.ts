@@ -64,6 +64,8 @@ export class ProfileDetailsComponent implements OnInit {
 
 
   
-
- 
+  updateUserData() {
+    this.userService.update(this.curentUser.email, this.userData)
+      .subscribe(response => console.log(response));
+  }
 }

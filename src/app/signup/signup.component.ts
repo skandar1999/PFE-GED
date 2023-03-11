@@ -14,6 +14,8 @@ export class SignupComponent implements OnInit {
   users! : User[];
   erreur = 0;
   err:number=0;
+  added: boolean = false;
+  vide: boolean = false;
   
   constructor(private authService: AuthService , private router: Router ) {}
 
@@ -21,12 +23,16 @@ export class SignupComponent implements OnInit {
 
 
   userCreate() {
+    if (!this.newUser.email || !this.newUser.username || !this.newUser.mobile || !this.newUser.password) {
+      this.vide = false;
+      return;
+    }
     this.authService.ajouterUser(this.newUser).subscribe(
       us => {
         console.log(us);
         if (us) {
-          alert('Vous vous-êtes inscrit avec succès !');
-          this.router.navigate(['login']);
+          
+          this.added = true;
         }
       },
       error => {

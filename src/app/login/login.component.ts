@@ -32,12 +32,11 @@ export class LoginComponent implements OnInit {
               
  
   onLoggedin():void {
-        
     this.authService.login(this.user)
     .subscribe( (data) => {
       //let jwToken = data.headers.get('Authorization')!;
      // let httpHeaders = new HttpHeaders({"Authorization":data})
-    
+
       this.authService.saveToken(data.token);
       this.router.navigate(['/docs']); 
       },

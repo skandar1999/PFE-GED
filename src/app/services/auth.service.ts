@@ -36,7 +36,7 @@ export class AuthService {
 
 
   token! : string;
-  
+
 
   private helper = new JwtHelperService();
 
@@ -50,9 +50,7 @@ export class AuthService {
          return this.http.post<any>(this.apilogin, user ); 
          }
 
-  
-
-    
+         
 
         saveToken(jwt:string){
           localStorage.setItem('jwt',jwt);
@@ -113,6 +111,7 @@ export class AuthService {
 
         }
 
+
         
 
      
@@ -155,12 +154,12 @@ export class AuthService {
   }
 
 
-  isAdmin():Boolean{
-    if (!this.roles) //this.roles== undefiened
-    return false;
-    return (this.roles.indexOf('ADMIN') >-1);
+  isAdmin(): boolean {
+    if (!this.roles) {
+      return false;
     }
-    
+    return this.roles.includes('ADMIN');
+  }
 
 
 

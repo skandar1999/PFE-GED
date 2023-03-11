@@ -20,8 +20,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { GoogleLoginProvider} from '@abacritt/angularx-social-login';
-import { JwtInterceptor } from '@auth0/angular-jwt';
-import { TokenInterceptor } from './token.interceptor';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 
@@ -73,7 +71,6 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
       } as SocialAuthServiceConfig,
     },
 
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
 
 

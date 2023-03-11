@@ -27,21 +27,8 @@ tr:nth-child(even) {
 
 .action1 {
   display: flex;
-  justify-content: space-between;
 }
 
-.btn {
-  color: #fff;
-  border-color: #a9aaac;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-}
 
 
 .action1 .btn{
@@ -50,14 +37,14 @@ tr:nth-child(even) {
   font-size: 14px;
   padding: 2px;
   height: 25px;
-  margin-left: 5px;
-  border-color: #9fa0a0;
-  color: #707070;
+  margin-left:  4px;
+  border-color: rgb(228, 225, 225);
+  color: #3a3939;
 }
 
 .action1 .btn:hover{
   border-color: rgb(0, 0, 0);
-  color: #494949;
+  color: #444444;
 }
 
 

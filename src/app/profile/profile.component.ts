@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
   token!:any;
   userData: any;
   newData: any;
+  roles:any;
 
 
   constructor(private userService: UserService , private authService: AuthService) { }
@@ -60,7 +61,6 @@ export class ProfileComponent implements OnInit {
           this.username=this.userData.username;
           this.password=this.userData.password;
           this.mobile=this.userData.mobile;
-
 
         }
       });

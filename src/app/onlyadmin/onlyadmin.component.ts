@@ -14,6 +14,8 @@ export class OnlyadminComponent implements OnInit {
 user = new User();
 users! : User[];
 username!:string;
+deleted: boolean = false;
+
 
   constructor( private authService: AuthService ,private userService: UserService) { }
 
@@ -35,8 +37,10 @@ username!:string;
   let conf = confirm("Etes-vous sûr supprimer ce compte ?");
   if (conf)
   this.authService.supprimerUser(user.id).subscribe(() => {
-  console.log("user supprimé");
+    
   this.chargerUser();
+  this.deleted = true;
+
   
   });
   }

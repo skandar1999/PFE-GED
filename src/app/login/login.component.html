@@ -3,11 +3,12 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="login-form border p-5">
+          
           <div
-            class="alert alert-warning alert-dismissible fade show"
-            *ngIf="err==1"
-          >
-            <strong>Email ou mot de passe invalide!</strong>
+            class="alert alert-warning alert-dismissible fade show" *ngIf="err==1">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            Email ou mot de passe invalide!            
           </div>
 
           <div class="text-center heading">
@@ -30,18 +31,19 @@
          
 
           <div class="field">
-            <span class="fa fa-lock"> </span>
-            
-          <input type="{{ hidePassword ? 'password' : 'text' }}" 
-          class="form-control" id="password"
-           placeholder="Mot de passe" 
-           [(ngModel)]="user.password">
-           <div class="input-group-append">
-            <span class="input-group-text">
-              <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()"></i>
-            </span>
-          </div>
-          </div>
+  <span class="fa fa-lock"> </span>
+  <input type="{{ hidePassword ? 'password' : 'text' }}" 
+         class="form-control" id="password"
+         placeholder="Mot de passe" 
+         [(ngModel)]="user.password"
+         [ngClass]="{'green-border': user.password}">
+  <div class="input-group-append">
+    <span class="input-group-text">
+      <i class="fa fa-fw fa-eye toggle-password" (click)="togglePassword()"></i>
+    </span>
+  </div>
+</div>
+
 
           <p class="lead">
             <a routerLink="/forgot-password">Mot de passe oublié ?</a>

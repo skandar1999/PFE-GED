@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent , title:"Connexion" },
   { path: 'signup', component: SignupComponent , title:"S'inscrire" },
   { path: 'forgot-password', component: ForgotPasswordComponent ,title:"Réinitialiser le mot de passe"  },
-  { path: 'profile-details/:email', component: ProfileDetailsComponent,canActivate: [UserGuard] , title:"Profile"},
+  { path: 'profile-details/:curentUser.email', component: ProfileDetailsComponent,canActivate: [UserGuard] , title:"Profile"},
   { path: 'docs', component: DocsComponent , canActivate: [UserGuard],  title:"Home"},
   { path: 'profile', component: ProfileComponent,canActivate: [UserGuard],  title:"Profile" },
   { path: 'contact', component: ContactComponent , title:"Contact"},
