@@ -27,7 +27,7 @@ export class ProfileDetailsComponent implements OnInit {
   token!:any;
   userData: any;
   newData: any;
- 
+  updateSuccess: boolean = false;
 
  constructor(
     public authService: AuthService,
@@ -62,10 +62,24 @@ export class ProfileDetailsComponent implements OnInit {
     this.authService.logout();
   }
 
-
-  
   updateUserData() {
-    this.userService.update(this.curentUser.email, this.userData)
-      .subscribe(response => console.log(response));
+    const userToUpdate = new User();
+    userToUpdate.email = this.curentUser?.email; // set the email of the user to be updated
+    userToUpdate.username = this.username; // set the new username
+    userToUpdate.password = this.password; // set the new password
+    userToUpdate.mobile = this.mobile; // set the new mobile number
+    
+    this.userService.Update(this.curentUser?.email, userToUpdate).subscribe(updatedUser => {
+      console.log(updatedUser);
+      this.updateSuccess = true;
+      setTimeout(() => {
+        this.updateSuccess = false;
+
+      }, 1500); // Delay for hiding the alert
+    });
+      
+    console.log("Username: ", this.username);
+    console.log("Password: ", this.password);
+    console.log("Mobile: ", this.mobile);
   }
 }

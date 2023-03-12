@@ -17,8 +17,8 @@ import { Component, OnInit} from '@angular/core';
 export class LoginComponent implements OnInit {
   user = new User();
   erreur = 0;
-  err:number=0;
   users! : User[];
+  err: boolean = false;
 
 
 
@@ -31,20 +31,22 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
               
  
-  onLoggedin():void {
-    this.authService.login(this.user)
-    .subscribe( (data) => {
-      //let jwToken = data.headers.get('Authorization')!;
-     // let httpHeaders = new HttpHeaders({"Authorization":data})
-
-      this.authService.saveToken(data.token);
-      this.router.navigate(['/docs']); 
+  onLoggedin(): void {
+  this.authService.login(this.user)
+    .subscribe(
+      (data) => {
+        this.authService.saveToken(data.token);
+        this.router.navigate(['/docs']);
       },
       error => {
-        this.err = 1;
-      });
+        this.err = true;
+        setTimeout(() => {
+          this.err = false;
+        }, 1800);
+      }
+    );
+}
 
-  } 
 
 
       public hidePassword = true;

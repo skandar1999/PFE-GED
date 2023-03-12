@@ -63,11 +63,11 @@ export class UserService {
           const url = `${this.findUserEmail}/${email}`;
           return this.http.get<User[]>(url);
           }
-          
-          update(email: string, userData: any): Observable<any> {
-            const url = `${this.updateUser}/${email}`;
-            return this.http.put<User>(url, userData , httpOptions);
+
+          Update(email: string , updatedUser: User): Observable<any> {
+            return this.http.put(`${this.updateUser}/${email}`, updatedUser);
           }
+          
     
           
           consulterUserById(id: number): Observable<User> {

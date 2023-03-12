@@ -39,7 +39,7 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
     SignupComponent,
     ProfileComponent,
     AboutUsComponent,
-    RechercheParNomComponent
+    RechercheParNomComponent,
   ],
   imports: [
     BrowserModule,

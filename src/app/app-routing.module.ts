@@ -13,14 +13,13 @@ import { DocsComponent } from './docs/docs.component';
 import { OnlyadminComponent } from './onlyadmin/onlyadmin.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { UserGuard } from './guard/user.guard';
-import { AdminGuard } from './guard/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent , title:"Connexion" },
   { path: 'signup', component: SignupComponent , title:"S'inscrire" },
   { path: 'forgot-password', component: ForgotPasswordComponent ,title:"Réinitialiser le mot de passe"  },
-  { path: 'profile-details/:curentUser.email', component: ProfileDetailsComponent,canActivate: [UserGuard] , title:"Profile"},
+  { path: 'profile-details/:curentUser.email', component: ProfileDetailsComponent, title:"Profile"},
   { path: 'docs', component: DocsComponent , canActivate: [UserGuard],  title:"Home"},
   { path: 'profile', component: ProfileComponent,canActivate: [UserGuard],  title:"Profile" },
   { path: 'contact', component: ContactComponent , title:"Contact"},

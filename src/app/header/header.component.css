@@ -1,26 +1,39 @@
-.collapse {
-  margin-left: 100px;
-  padding: 1px;
+
+
+.action .btn {
+  border-radius: 5px;
+  padding: 1.2px 15px;
+  border-color: rgb(228, 225, 225);
+  color: #666666;
+  margin-left: 400px;
+
 }
 
 
-.mytitle{
-  font-size: 25px;
-  font-family: "Bahnschrift SemiBold", sans-serif;
-  color: black;
+.action .btn-submit:hover {
+  border-color: rgb(0, 0, 0);
+  color: #494949;
 }
 
-.mytitle:hover{
-  text-decoration: underline;
-} 
+
+
+.navigation {
+  background-color: #f8f9fa;
+  height: 70px;
+  margin-top: -22px;
+  padding-bottom: auto;
+  margin-bottom: auto;
+}
+
+.navigation img {
+  max-height: 30px;
+}
 
 /* Navbar style */
 .navbar {
-  margin-top: -13px;
-  padding: 0px;
-  box-shadow: 0  2px 8px rgba(7, 0, 0, 0.05);
-  background: #f9f9f9;
+  padding-bottom: -1px;
 
+  box-shadow: 0 5px 10px rgba(7, 0, 0, 0.05);
 }
 
 /* Navbar brand style */
@@ -38,9 +51,7 @@
 
 .navbar-nav a:hover {
   color: #000000;
-
 }
-
 
 .dropdown-item {
   font-size: 1rem;
@@ -51,19 +62,56 @@
   background-color: #f8f9fa;
 }
 
-
-/* Connect button style */
-
-
-.action .btn {
-  border-radius: 5px;
-  padding: 3.5px 7px;
-  border-color: rgb(228, 225, 225);
-  color: #666666;
+/* Responsive styles */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    margin-top: 10px;
+  }
+  
+  .navbar-brand img {
+    max-width: 80px;
+  }
+  
+  .navbar-toggler {
+    margin-top: -10px;
+  }
+  
+  .navbar-collapse {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 8px rgba(7, 0, 0, 0.05);
+  }
+  
+  .navbar-nav {
+    margin-left: 0;
+  }
+  
+  .navbar-nav a {
+    color: #666666;
+    font-size: 16px;
+  }
+  
+  .navbar-nav a:hover {
+    color: #000000;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  
+  .dropdown-menu a {
+    color: #666666;
+    font-size: 16px;
+  }
+  
+  .dropdown-menu a:hover {
+    color: #000000;
+  }
 }
 
 
-.action .btn-submit:hover {
-  border-color: rgb(0, 0, 0);
-  color: #494949;
-}

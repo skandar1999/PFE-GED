@@ -32,18 +32,18 @@ deleted: boolean = false;
     });
     }
 
-  supprimerUser(user: User)
-  {
-  let conf = confirm("Etes-vous sûr supprimer ce compte ?");
-  if (conf)
-  this.authService.supprimerUser(user.id).subscribe(() => {
-    
-  this.chargerUser();
-  this.deleted = true;
-
-  
-  });
-  }
+    supprimerUser(user: User) {
+      let conf = confirm("Etes-vous sûr supprimer ce compte ?");
+      if (conf) {
+        this.authService.supprimerUser(user.id).subscribe(() => {
+          this.chargerUser();
+          this.deleted = true;
+          setTimeout(() => {
+            this.deleted = false;
+          }, 1700);
+        });
+      }
+    }
 
   rechercherParUser(){
     this.userService.rechercherParUsername(this.username).
